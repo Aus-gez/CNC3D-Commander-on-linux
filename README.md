@@ -8,6 +8,7 @@ They use software for their propiatary CNC [Nighthawk Controller](https://www.cn
 
 From the [Commander](https://www.cnc3d.com.au/commander) page:
 > The CNC3D Commander project (Formerly SharpCNC Commander) started off as a complimentary configuration tool for our CNC router kits. Over time, this project has turned into a full CNC control management suite with built in Creation tools that allow you to make your designs come to life. It is also completely FREE for personal use.
+>
 > This software is written in Microsoft .NET framework and is designed for use on Windows PCs and laptops.
 
 So I figured out what was required to get the software working in Wine on Linux, and thought I'd document it to save future-me some time, and possibly others.
