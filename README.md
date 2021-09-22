@@ -23,13 +23,38 @@ As at 9 Sep 2021, everything works that I've tested.
 ## The script
 Sorry, this isn't done yet.
 
-## The manual process
-1. Install Wine (latest stable is fine).
-2. Install wine tricks.
-3. Create a wine prefix for Commander.
-    * **Optional GUI step:** I like a gui for interacting with wine prefixes. So I use [Q4Wine](https://q4wine.brezblock.org.ua/). You can use that to create the wine prefix, and carry out the below steps. 
-4. Using wine tricks, install the latest dotnet 4.x package you have.
-5. Install all the fonts you can under winetricks.
+## Install Wine (if you don't have it installed already)
+
+1. Set up the wineHQ repository key.
+    ```sh
+    $ wget -nc https://dl.winehq.org/wine-builds/winehq.key
+    $ sudo -H gpg -o /etc/apt/trusted.gpg.d/winehq.key.gpg --dearmor winehq.key
+    ```
+2. Add the repository.
+    ```sh
+    $ sudo add-apt-repository 'deb https://dl.winehq.org/wine-builds/ubuntu/ focal main'
+    ```
+3. Update the package database.
+    ```sh
+    $ sudo apt update
+    ```
+4. Install wine 
+    ```sh
+    $ sudo apt install --install-recommends winehq-stable
+    ```
+
+### Create wine prefix, and install Commander software - Manual steps
+1. Create a wine prefix for Commander.
+2. Using wine tricks, install the latest dotnet 4.x package you have.
+3. Install all the fonts you can under winetricks.
+
+
+### Create wine prefix, and install Commander software - GUI steps
+I like a gui for interacting with wine prefixes. So I use [Q4Wine](https://q4wine.brezblock.org.ua/). You can use that it to create the wine prefix, and carry out the below steps. 
+
+1. Create a wine prefix for Commander.
+2. Using wine tricks, install the latest dotnet 4.x package you have.
+3. Install all the fonts you can under winetricks.
 
 
 
