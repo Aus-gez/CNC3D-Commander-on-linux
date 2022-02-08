@@ -82,4 +82,4 @@ In the steps below, I'll be using Q4Wine to create and manage a WINE prefix (a d
     2. Open Q4Wine, on the Programs tab, select your prefix from the list of prefixes. Right click it and select 'run'.
     3. In the run dialog, click the button to the right of the Program field. Select the setup program for commander that you downloaded earlier.
     4. Follow the prompts in the CNC3D setup wizard, and let it check online for updates.
-    5. You should be done now!
+    5. You should be done now! You will now have an icon in your Mint programs menu, and also on your desktop.
