@@ -11,7 +11,7 @@ From the [Commander](https://www.cnc3d.com.au/commander) page:
 >
 > This software is written in Microsoft .NET framework and is designed for use on Windows PCs and laptops.
 
-So I figured out what was required to get the software working in Wine on Linux, and thought I'd document it to save future-me some time, and possibly others.
+I figured out what was required to get the software working in Wine on Linux, and thought I'd document it to save future-me some time, and possibly others.
 
 ## What platforms has this been tested on?
 A short list, to be sure.
