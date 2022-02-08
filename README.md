@@ -15,16 +15,20 @@ So I figured out what was required to get the software working in Wine on Linux,
 
 ## What platforms has this been tested on?
 A short list, to be sure.
-* Ubuntu 20.04
+* Ubuntu 20.04 (used extensively)
+* Linux mint lmde 4 (to the point of getting the program working)
 
 ## What works?
-As at 9 Sep 2021, everything works that I've tested.
-
-## The script
-Sorry, this isn't done yet.
+As at 9 Sep 2021, all functions I've tested so far works so far. If you find functions that don't work, and suspect you suspecg Wine may be the culpret, let me know.
+Some of the text doesn't all fit on to the spaces allotted for them on the interface. This might be resolved by you installing more fonts (see below).
 
 ## Install Wine (if you don't have it installed already)
 
+1. Follow the steps for installing the latest Wine for your platform. Follow the steps here:
+https://wiki.winehq.org/Download
+2. I suggest you do the recommended install of Wine. 
+
+Example for Ubuntu: 
 1. Set up the wineHQ repository key.
     ```sh
     $ wget -nc https://dl.winehq.org/wine-builds/winehq.key
@@ -41,20 +45,41 @@ Sorry, this isn't done yet.
 4. Install wine 
     ```sh
     $ sudo apt install --install-recommends winehq-stable
+
+### WINE setup
+I like a gui for interacting with wine prefixes. I use [Q4Wine](https://q4wine.brezblock.org.ua/), however I'm also exploring alternatives like [Bottles](https://usebottles.com/download/).
+
+In the steps below, I'll be using Q4Wine to create and manage a WINE prefix (a discrete set of environment settings for WINE). You can use that prefix to run Commander. 
+
+1. Install Q4Wine - follow the instructions for your distribution.
+2. Create a wine prefix for Commander:
+    1. Step through the first-time setup wizard. I found the default settings to be fine.
+    2. Go to the prefix tab.
+    3. Click on the [+] button to create a new prefix.
+    4. Enter in a name for your prefix. eg: Commander software, then click ok.
+3. Set up your new prefix:
+    1. On the main Q4Wine panel, go to the Setup tab, and ensure your new prefix is selected in the drop down located at the top of that tab.
+    2. You should see two options in the left panel. System and Winetricks. Select Winetricks.
+    3. If there are no options under Winetricks, that means your system does not currently have it installed. In the panel on the right, run 'Install or update Winetricks script', then run 'Refresh Winetricks application list'. This should create a bunch of options under Winetricks in the panel on the left.
+    4. Select dlls from the list under Winetricks.
+    5. Scroll through the list of DLLs on the right-panel. Find and run the most recent dotnet 4 package. At the time of writing, that is 'dotnet48'. This will pop up a terminal window that will execute the download and install of this dotnet package in to your prefex. When the windows installation wizard window pops up, follow the prompts.
+    6. Install some fonts, I'd suggest some of the common ones. I haven't checked which font is in use on the interface yet. I'll update this when I do. 
+4. Optional: Set up COM ports for USB access to your mill. This is for if you intend to directly connect to your CNC mill. Steps are:
+    1. Add yourself to the dialout user groups on your machine. This is so you can access serial ports without root permissions. This can be done from Terminal:
+    ```sh
+    sudo adduser <your_username> dialout
+    sudo adduser <your_username> sys
     ```
-
-### Create wine prefix, and install Commander software - Manual steps
-1. Create a wine prefix for Commander.
-2. Using wine tricks, install the latest dotnet 4.x package you have.
-3. Install all the fonts you can under winetricks.
-
-
-### Create wine prefix, and install Commander software - GUI steps
-I like a gui for interacting with wine prefixes. So I use [Q4Wine](https://q4wine.brezblock.org.ua/). You can use that it to create the wine prefix, and carry out the below steps. 
-
-1. Create a wine prefix for Commander.
-2. Using wine tricks, install the latest dotnet 4.x package you have.
-3. Install all the fonts you can under winetricks.
-
-
-
+    2. Override Wine's default device mapping for COM/USB ports. Select the system folder under your prefix in Q4Wine. Run regedit (in the right panel).
+    3. Create string entries in HKEY_LOCAL_MACHINE\Software\Wine\Ports where the entry name is the Windows device name and the entry value is the path to the Unix device. To make COM1 the first USB-attached serial port, create an entry with the name COM1 and the value /dev/ttyUSB0. 
+    4. After editing the registry, shut down Q4Wine, and Wine with the command:
+        ```sh
+        wineserver -k
+        ```
+        The next time Wine runs a program, your changes will take effect. 
+5. Install Commander in your prefix:
+    1. [Download the latest version of Commander](https://www.cnc3d.com.au/commander) from CNC3D. 
+    2. Open Q4Wine, on the Programs tab, select your prefix from the list of prefixes. Right click it and select 'run'.
+    3. In the run dialog, click the button to the right of the Program field. Select the setup program for commander that you downloaded earlier.
+    4. Follow the prompts in the CNC3D setup wizard, and let it check online for updates.
+    5. You should be done now!
