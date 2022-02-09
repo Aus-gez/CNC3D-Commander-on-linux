@@ -77,9 +77,10 @@ In the steps below, I'll be using Q4Wine to create and manage a WINE prefix (a d
         wineserver -k
         ```
         The next time Wine runs a program, your changes will take effect. 
-5. Install Commander in your prefix:
-    1. [Download the latest version of Commander](https://www.cnc3d.com.au/commander) from CNC3D. 
-    2. Open Q4Wine, on the Programs tab, select your prefix from the list of prefixes. Right click it and select 'run'.
-    3. In the run dialog, click the button to the right of the Program field. Select the setup program for commander that you downloaded earlier.
-    4. Follow the prompts in the CNC3D setup wizard, and let it check online for updates.
-    5. You should be done now! You will now have an icon in your Mint programs menu, and also on your desktop.
+
+## Install Commander in your Wine prefix
+1. [Download the latest version of Commander](https://www.cnc3d.com.au/commander) from CNC3D. 
+2. Open Q4Wine, on the Programs tab, select your prefix from the list of prefixes. Right click it and select 'run'.
+3. In the run dialog, click the button to the right of the Program field. Select the setup program for commander that you downloaded earlier.
+4. Follow the prompts in the CNC3D setup wizard, and let it check online for updates.
+5. You should be done now! You will now have an icon in your Mint programs menu, and also on your desktop.
