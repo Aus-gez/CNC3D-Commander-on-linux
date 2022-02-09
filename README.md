@@ -46,7 +46,7 @@ Example for Ubuntu:
     ```sh
     $ sudo apt install --install-recommends winehq-stable
 
-### WINE setup
+## WINE setup
 I like a gui for interacting with wine prefixes. I use [Q4Wine](https://q4wine.brezblock.org.ua/), however I'm also exploring alternatives like [Bottles](https://usebottles.com/download/).
 
 In the steps below, I'll be using Q4Wine to create and manage a WINE prefix (a discrete set of environment settings for WINE). You can use that prefix to run Commander. 
