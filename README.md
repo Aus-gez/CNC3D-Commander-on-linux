@@ -71,19 +71,19 @@ I like a gui for interacting with wine prefixes. I use [Q4Wine](https://q4wine.b
 In the steps below, I'll be using Q4Wine to create and manage a WINE prefix (a discrete set of environment settings for WINE). You can use that prefix to run Commander. 
 
 1. Install Q4Wine - follow the instructions for your distribution.
-2. Create a wine prefix for Commander:
     1. Step through the first-time setup wizard. I found the default settings to be fine.
-    2. Go to the prefix tab.
-    3. Click on the [+] button to create a new prefix.
-    4. Enter in a name for your prefix. eg: Commander software, then click ok.
-3. Set up your new prefix:
+3. Create a wine prefix for Commander:
+    1. Go to the prefix tab.
+    2. Click on the [+] button to create a new prefix.
+    3. Enter in a name for your prefix. eg: Commander software, then click ok.
+4. Set up your new prefix:
     1. On the main Q4Wine panel, go to the Setup tab, and ensure your new prefix is selected in the drop down located at the top of that tab.
     2. You should see two options in the left panel. System and Winetricks. Select Winetricks.
     3. If there are no options under Winetricks, that means your system does not currently have it installed. In the panel on the right, run 'Install or update Winetricks script', then run 'Refresh Winetricks application list'. This should create a bunch of options under Winetricks in the panel on the left.
     4. Select dlls from the list under Winetricks.
     5. Scroll through the list of DLLs on the right-panel. Find and run the most recent dotnet 4 package. At the time of writing, that is 'dotnet48'. This will pop up a terminal window that will execute the download and install of this dotnet package in to your prefex. When the windows installation wizard window pops up, follow the prompts.
     6. Install some fonts, I'd suggest some of the common ones. I haven't checked which font is in use on the interface yet. I'll update this when I do. 
-4. Optional: Set up COM ports for USB access to your mill. This is for if you intend to directly connect to your CNC mill. Steps are:
+5. Optional: Set up COM ports for USB access to your mill. This is for if you intend to directly connect to your CNC mill. Steps are:
     1. Add yourself to the dialout user groups on your machine. This is so you can access serial ports without root permissions. This can be done from Terminal:
     ```sh
     sudo adduser <your_username> dialout
