@@ -24,27 +24,46 @@ Some of the text doesn't all fit on to the spaces allotted for them on the inter
 
 ## Install Wine (if you don't have it installed already)
 
-1. Follow the steps for installing the latest Wine for your platform. Follow the steps here:
-https://wiki.winehq.org/Download
-2. I suggest you do the recommended install of Wine. 
+1. Follow the steps for installing the latest Wine for your platform. I suggest you do the recommended install of Wine. 
 
-Example for Ubuntu: 
-1. Set up the wineHQ repository key.
+Example for **Ubuntu**, follow the steps on https://wiki.winehq.org/Ubuntu. For convenience I've reproduced the steps below.
+1. Enable the 32bit architecture.
+   ```sh
+   sudo dpkg --add-architecture i386
+   ```
+3. Set up the wineHQ repository key.
     ```sh
-    $ wget -nc https://dl.winehq.org/wine-builds/winehq.key
-    $ sudo -H gpg -o /etc/apt/trusted.gpg.d/winehq.key.gpg --dearmor winehq.key
+    sudo mkdir -pm755 /etc/apt/keyrings
+    sudo wget -O /etc/apt/keyrings/winehq-archive.key https://dl.winehq.org/wine-builds/winehq.key
     ```
-2. Add the repository.
+4. Add the repository (only execute one of these commands).
     ```sh
-    $ sudo add-apt-repository 'deb https://dl.winehq.org/wine-builds/ubuntu/ focal main'
+    # Ubuntu 23.04
+    # (Lunar Lobster)
+    sudo wget -NP /etc/apt/sources.list.d/ https://dl.winehq.org/wine-builds/ubuntu/dists/lunar/winehq-lunar.sources
+
+    # Ubuntu 22.10
+    # (Kinetic Kudu)
+    sudo wget -NP /etc/apt/sources.list.d/ https://dl.winehq.org/wine-builds/ubuntu/dists/kinetic/winehq-kinetic.sources
+
+    # Ubuntu 22.04
+    # (Jammy Jellyfish)
+    # Linux Mint 21.x
+    sudo wget -NP /etc/apt/sources.list.d/ https://dl.winehq.org/wine-builds/ubuntu/dists/jammy/winehq-jammy.sources
+
+    # Ubuntu 20.04
+    # (Focal Fossa)
+    # Linux Mint 20.x
+    sudo wget -NP /etc/apt/sources.list.d/ https://dl.winehq.org/wine-builds/ubuntu/dists/focal/winehq-focal.sources
     ```
-3. Update the package database.
+5. Update the package database.
     ```sh
-    $ sudo apt update
+    sudo apt update
     ```
-4. Install wine 
+6. Install wine 
     ```sh
-    $ sudo apt install --install-recommends winehq-stable
+    sudo apt install --install-recommends winehq-stable
+    ```
 
 ## WINE setup
 I like a gui for interacting with wine prefixes. I use [Q4Wine](https://q4wine.brezblock.org.ua/), however I'm also exploring alternatives like [Bottles](https://usebottles.com/download/).
