@@ -19,54 +19,28 @@ A short list, to be sure.
 * Linux mint lmde 4 (to the point of getting the program working)
 
 ## What works?
-As at 9 Sep 2021, all functions I've tested so far works so far. If you find functions that don't work, and suspect you suspecg Wine may be the culpret, let me know.
-Some of the text doesn't all fit on to the spaces allotted for them on the interface. This might be resolved by you installing more fonts (see below).
+As at May 2024, all functions I've tested so far works. If you find functions that don't work, and suspect Wine may be the culpret, let me know.
 
-## Install Wine (if you don't have it installed already)
+## Known issue
+Some of the text in the Commander software doesn't fit onto the areas allotted for them on the interface. This might be resolved by you installing more fonts (see below).
 
-1. Follow the steps for installing the latest Wine for your platform. I suggest you do the recommended install of Wine. 
+## Mandatory step - Install a recent version of Wine (if you don't have it installed already)
 
-Example for **Ubuntu**, follow the steps on https://wiki.winehq.org/Ubuntu. For convenience I've reproduced the steps below.
-1. Enable the 32bit architecture.
-   ```sh
-   sudo dpkg --add-architecture i386
-   ```
-3. Set up the wineHQ repository key.
-    ```sh
-    sudo mkdir -pm755 /etc/apt/keyrings
-    sudo wget -O /etc/apt/keyrings/winehq-archive.key https://dl.winehq.org/wine-builds/winehq.key
-    ```
-4. Add the repository (only execute one of these commands).
-    ```sh
-    # Ubuntu 23.04
-    # (Lunar Lobster)
-    sudo wget -NP /etc/apt/sources.list.d/ https://dl.winehq.org/wine-builds/ubuntu/dists/lunar/winehq-lunar.sources
+Follow the steps for installing the latest Wine for your platform as per https://wiki.winehq.org/
 
-    # Ubuntu 22.10
-    # (Kinetic Kudu)
-    sudo wget -NP /etc/apt/sources.list.d/ https://dl.winehq.org/wine-builds/ubuntu/dists/kinetic/winehq-kinetic.sources
+For example, the steps for installing the latest wine on **Ubuntu**: https://wiki.winehq.org/Ubuntu.
 
-    # Ubuntu 22.04
-    # (Jammy Jellyfish)
-    # Linux Mint 21.x
-    sudo wget -NP /etc/apt/sources.list.d/ https://dl.winehq.org/wine-builds/ubuntu/dists/jammy/winehq-jammy.sources
+## Option 1 - script
+Execute the following script:
 
-    # Ubuntu 20.04
-    # (Focal Fossa)
-    # Linux Mint 20.x
-    sudo wget -NP /etc/apt/sources.list.d/ https://dl.winehq.org/wine-builds/ubuntu/dists/focal/winehq-focal.sources
-    ```
-5. Update the package database.
-    ```sh
-    sudo apt update
-    ```
-6. Install wine 
-    ```sh
-    sudo apt install --install-recommends winehq-stable
-    ```
+Alternatively download the script and make adjustments based on your needs: [scripts/create_commander_in_wine_prefix.sh](scripts/create_commander_in_wine_prefix.sh)
 
-## WINE setup
-I like a gui for interacting with wine prefixes. I use [Q4Wine](https://q4wine.brezblock.org.ua/), however I'm also exploring alternatives like [Bottles](https://usebottles.com/download/).
+```sh
+wget -N https://raw.githubusercontent.com/Aus-gez/CNC3D-Commander-on-linux/main/scripts/create_commander_in_wine_prefix.sh && chmod +x create_commander_in_wine_prefix.sh && ./create_commander_in_wine_prefix.sh
+```
+
+## Option 2 - using the Q4Wine (GUI)
+If you prefer a GUI. I've tested this approach using [Q4Wine](https://q4wine.brezblock.org.ua/), however you may be able to adapt this approach using other GUIs.
 
 In the steps below, I'll be using Q4Wine to create and manage a WINE prefix (a discrete set of environment settings for WINE). You can use that prefix to run Commander. 
 
@@ -96,10 +70,9 @@ In the steps below, I'll be using Q4Wine to create and manage a WINE prefix (a d
         wineserver -k
         ```
         The next time Wine runs a program, your changes will take effect. 
-
-## Install Commander in your Wine prefix
-1. [Download the latest version of Commander](https://www.cnc3d.com.au/commander) from CNC3D. 
-2. Open Q4Wine, on the Programs tab, select your prefix from the list of prefixes. Right click it and select 'run'.
-3. In the run dialog, click the button to the right of the Program field. Select the setup program for commander that you downloaded earlier.
-4. Follow the prompts in the CNC3D setup wizard, and let it check online for updates.
-5. You should be done now! You will now have an icon in your Mint programs menu, and also on your desktop.
+    5. Install Commander in your Wine prefix:
+        1. [Download the latest version of Commander](https://www.cnc3d.com.au/commander) from CNC3D. 
+        2. Open Q4Wine, on the Programs tab, select your prefix from the list of prefixes. Right click it and select 'run'.
+        3. In the run dialog, click the button to the right of the Program field. Select the setup program for commander that you downloaded earlier.
+        4. Follow the prompts in the CNC3D setup wizard, and let it check online for updates.
+        5. You should be done now! You will now have an icon in your Mint programs menu, and also on your desktop.
