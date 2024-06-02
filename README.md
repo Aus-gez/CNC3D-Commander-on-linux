@@ -19,8 +19,9 @@ I figured out what was required to get the software working in Wine on Linux, an
 
 A short list, to be sure:
 
-* Ubuntu 20.04 (used extensively)
-* Linux mint lmde 4 (to the point of getting the program working)
+* PopOS 22.04
+* Ubuntu 20.04
+* Linux mint lmde 4
 
 ## What works?
 
