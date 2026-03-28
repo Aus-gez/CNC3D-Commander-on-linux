@@ -39,7 +39,7 @@ Follow the steps for installing the latest Wine for your platform as per https:/
 
 For example, the steps for installing the latest wine on **Ubuntu**: https://wiki.winehq.org/Ubuntu.
 
-### Install 
+### Install winbind package
 One of the wine installation steps requires `ntlm_auth` (see below). To deal with this, install the `winbind` package from your distros package management.
 
 ```
