@@ -31,11 +31,20 @@ As at May 2024, all functions I've tested so far works. If you find functions th
 
 Some of the text in the Commander software doesn't fit onto the areas allotted for them on the interface. This might be resolved by you installing more fonts (see below).
 
-## Mandatory step - Install a recent version of Wine (if you don't have it installed already)
+## Mandatory steps 
+
+### Install a recent version of Wine (if you don't have it installed already)
 
 Follow the steps for installing the latest Wine for your platform as per https://wiki.winehq.org/
 
 For example, the steps for installing the latest wine on **Ubuntu**: https://wiki.winehq.org/Ubuntu.
+
+### Install 
+One of the wine installation steps requires `ntlm_auth` (see below). To deal with this, install the `winbind` package from your distros package management.
+
+```
+0114:err:winediag:ntlm_check_version ntlm_auth was not found. Make sure that ntlm_auth >= 3.0.25 is in your path. Usually, you can find it in the winbind package of your distribution.
+```
 
 ## Option 1 - script
 
