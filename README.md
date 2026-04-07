@@ -39,12 +39,18 @@ Follow the steps for installing the latest Wine for your platform as per https:/
 
 For example, the steps for installing the latest wine on **Ubuntu**: https://wiki.winehq.org/Ubuntu.
 
-### Install winbind package
-One of the wine installation steps requires `ntlm_auth` (see below). To deal with this, install the `winbind` package from your distros package management.
-
+### Install required packages
+The short version:
+```sh
+# Install windbind and cabextract
+sudo apt install winbind cabextract
+```
+The long version:
+- One of the wine installation steps requires `ntlm_auth` (see below). To deal with this, install the `winbind` package from your distros package management.\
 ```
 0114:err:winediag:ntlm_check_version ntlm_auth was not found. Make sure that ntlm_auth >= 3.0.25 is in your path. Usually, you can find it in the winbind package of your distribution.
 ```
+- Some of the packages and libraries installed by my script using winetricks require cabextract in order to be applied. Eg: fonts, and dotnet packages.
 
 ## Option 1 - script
 
