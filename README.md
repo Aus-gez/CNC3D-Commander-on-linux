@@ -15,17 +15,15 @@ From the [Commander](https://www.cnc3d.com.au/commander) page:
 
 I figured out what was required to get the software working in Wine on Linux, and thought I'd document it to save future-me some time, and possibly others.
 
-## What platforms has this been tested on?
+## What Linux OS has this been tested on?
 
-A short list, to be sure:
-
-* PopOS 22.04
-* Ubuntu 20.04
+* PopOS 22.04, 24.04
+* Ubuntu 20.04, 24.04
 * Linux mint lmde 4
 
 ## What works?
 
-As at May 2024, all functions I've tested so far works. If you find functions that don't work, and suspect Wine may be the culpret, let me know.
+As at April 2026, all functions I've tested so far works. If you find functions that don't work, and suspect Wine may be the culpret, let me know.
 
 ## Known issue
 
@@ -40,12 +38,12 @@ Follow the steps for installing the latest Wine for your platform as per https:/
 For example, the steps for installing the latest wine on **Ubuntu**: https://wiki.winehq.org/Ubuntu.
 
 ### Install required packages
-The short version:
 ```sh
 # Install windbind and cabextract
 sudo apt install winbind cabextract
 ```
-The long version:
+
+The explanation for the required packages:
 - One of the wine installation steps requires `ntlm_auth` (see below). To deal with this, install the `winbind` package from your distros package management.\
 ```
 0114:err:winediag:ntlm_check_version ntlm_auth was not found. Make sure that ntlm_auth >= 3.0.25 is in your path. Usually, you can find it in the winbind package of your distribution.
